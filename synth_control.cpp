@@ -541,7 +541,7 @@ class Instrument {
                         } return;
                         case (20): {
                             config.zero_offset = 2 * ((1<<24) / 128);
-                            led_rgb3(56, 28, 0);
+                            led_rgb3(28, 14, 0);
                         } return;
                         case (22): {
                             config.zero_offset = 4 * ((1<<24) / 128);
