@@ -302,7 +302,7 @@ class Instrument {
         synth_interface_t* synth_interface;
         int voicecount = VOICECOUNT;
         int midi_channel_offset = 1;
-        float midi_bend_range = 48.0;
+        float midi_bend_range = 12.0;
         float bend_sensitivity = 0.25;
         float pres_sensitivity = 1.0f;
         float velo_sensitivity = 1.0f;
@@ -695,6 +695,16 @@ class Instrument {
                         } return;
 
                         // row 8:       56 58 60 62 47 49
+                        case (47):{ // Y to CC 1
+                            config.midi_y = 1;
+                            config.mpe_y = 1;
+                            ws2812_write_led(0, 7, 0, 5);
+                        } return;
+                        case (49):{ // Y to CC 74 (Default)
+                            config.midi_y = 74;
+                            config.mpe_y = 74;
+                            ws2812_write_led(0, 8, 4, 0);
+                        } return;
                         // row 9:                   63 65 67
                         case (63): { // panic/request config
 #ifdef USE_MIDI_OUT
