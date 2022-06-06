@@ -101,7 +101,7 @@ config_t config = {
   .send_motion_interval = 1,  // 0 = disable, else x10ms
   .send_motion_14bit = 0,     // send 14 bit motion CC
   .send_button_14bit = 0,     // send 14 bit MPE CC
-  .zero_offset = 0,
+  .zero_offset =  2 * ((1<<24) / 128),
   .debug = 0,
   .midi_mode = MIDI_MODE_MPE,
   // for the following: < 120: CC, or CFG_* (not all options are supported)
